@@ -4,3 +4,4 @@ stest
 stest.o
 util.o
 dmenu
+config.h
