@@ -758,7 +758,7 @@ static void
 usage(void)
 {
 	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
-	      "             [-h height]\n"
+	      "             [-h height] [-it text]\n"
 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
 	exit(1);
 }
@@ -812,6 +812,10 @@ main(int argc, char *argv[])
 			embed = argv[++i];
 		else if (!strcmp(argv[i], "-bw"))
 			border_width = atoi(argv[++i]); /* border width */
+ 		else if (!strcmp(argv[i], "-it")) { /* initial text */
+			const char * text = argv[++i];
+			insert(text, strlen(text));
+		}
 		else
 			usage();
 
